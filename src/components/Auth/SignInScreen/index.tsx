@@ -1,21 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import { UIContext } from '../../Unknown/UIContext';
+import LoginForm from './LoginForm/LoginForm';
 
 const SignInScreen: React.FC = () => {
-  const { setAlert } = useContext(UIContext);
-
-  const handleSignIn = React.useCallback(async () => {
-    setAlert({
-      show: true,
-      severity: 'info',
-      message: 'Sign in button was clicked.',
-    });
-  }, [setAlert]);
-
   return (
     <>
       <Box
@@ -25,12 +14,17 @@ const SignInScreen: React.FC = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Container fixed maxWidth="sm">
+        <Container fixed>
           <Grid container>
-            <Grid item xs={12}>
-              <Button type="button" onClick={handleSignIn}>
-                Sign in
-              </Button>
+            <Grid item xs={6}>
+              <img
+                src="./Hero_image.png"
+                alt="login img"
+                style={{ width: '100%' }}
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <LoginForm />
             </Grid>
           </Grid>
         </Container>
