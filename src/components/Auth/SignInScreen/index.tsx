@@ -20,7 +20,7 @@ const SignInScreen: React.FC = () => {
               <img
                 src="./Hero_image.png"
                 alt="login img"
-                style={{ width: '100%' }}
+                style={{ width: '100%', height: '100%' }}
               />
             </Grid>
             <Grid item xs={6}>
