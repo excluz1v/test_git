@@ -1,11 +1,11 @@
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import * as Yup from 'yup';
 import { Form, Formik } from 'formik';
 import React, { useContext } from 'react';
 import TextField from '@mui/material/TextField';
 import { UIContext } from '../../../Unknown/UIContext';
 import Logo from '../Logo/Logo';
+import LoginSchema from './validateSchema';
 
 export default function LoginForm() {
   const { setAlert } = useContext(UIContext);
@@ -18,15 +18,6 @@ export default function LoginForm() {
     });
   }, [setAlert]);
 
-  const LoginSchema = Yup.object().shape({
-    password: Yup.string()
-      .min(2, 'Слишком короткий пароль!')
-      .max(20, 'Слишком длинный пароль')
-      .required('Обязательное поле'),
-    email: Yup.string()
-      .email('Некорректный email')
-      .required('Обязательное поле'),
-  });
   return (
     <Box
       display="flex"
