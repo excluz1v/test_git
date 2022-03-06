@@ -2,7 +2,7 @@ import React from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LoginForm from './LoginForm/LoginForm';
+import Login from './Login/Login';
 
 const SignInScreen: React.FC = () => {
   return (
@@ -24,7 +24,7 @@ const SignInScreen: React.FC = () => {
               />
             </Grid>
             <Grid item xs={6}>
-              <LoginForm />
+              <Login />
             </Grid>
           </Grid>
         </Container>
