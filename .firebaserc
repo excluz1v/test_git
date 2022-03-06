@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "voypost"
-  }
+    "default": "voypost",
+    "voypost": "voypost-9ceae"
+  },
+  "targets": {}
 }

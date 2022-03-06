@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import { useUser } from 'reactfire';
 import AuthenticatedLayout from '../AuthenticatedLayout';
 import GuestLayout from '../GuestLayout';
@@ -44,7 +44,7 @@ const Root: React.FC = () => {
     <GuestLayout>
       <Switch>
         <Route exact path="/login" component={SignInScreen} />
-        <Route path="*" component={NotFoundScreen} />
+        <Redirect from="*" to="/login" />
       </Switch>
     </GuestLayout>
   );
