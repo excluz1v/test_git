@@ -21,7 +21,7 @@ const useStyles = makeStyles(() =>
     },
   }),
 );
-export default function Login() {
+const Login: React.FC = () => {
   const classes = useStyles();
   return (
     <Box className={classes.wrapper}>
@@ -30,4 +30,6 @@ export default function Login() {
       <LoginForm />
     </Box>
   );
-}
+};
+
+export default Login;

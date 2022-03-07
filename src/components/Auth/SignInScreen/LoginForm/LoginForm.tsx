@@ -1,6 +1,5 @@
 import Button from '@mui/material/Button';
 import { createStyles, makeStyles } from '@mui/styles';
-import { Theme } from '@mui/system';
 import { Form, Formik } from 'formik';
 import React, { useContext, useState } from 'react';
 import TextField from '@mui/material/TextField';
@@ -11,7 +10,7 @@ import LoginSchema from './validateSchema';
 import { auth } from '../../../../common/firebaseApp';
 import { ThandleSignInparams, ShowAlertParams } from '../../../../../types';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     form: {
       display: 'flex',
@@ -21,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function LoginForm() {
+const LoginForm: React.FC = () => {
   const { setAlert } = useContext(UIContext);
   const [showPass, setShowPass] = useState(false);
   const [disabled, setDisabled] = useState(false);
@@ -122,4 +121,6 @@ export default function LoginForm() {
       </Formik>
     </>
   );
-}
+};
+
+export default LoginForm;

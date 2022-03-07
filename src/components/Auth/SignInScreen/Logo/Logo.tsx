@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function Logo() {
+const Logo: React.FC = () => {
   const classes = useStyles();
   return (
     <Typography className={classes.logo} variant="h3">
@@ -33,4 +33,6 @@ export default function Logo() {
       </svg>
     </Typography>
   );
-}
+};
+
+export default Logo;

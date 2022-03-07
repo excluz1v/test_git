@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function HomeMenu() {
+const HomeMenu: React.FC = () => {
   const classes = useStyles();
   const user = useUser();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -92,4 +92,6 @@ export default function HomeMenu() {
       </AppBar>
     </div>
   );
-}
+};
+
+export default HomeMenu;
