@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "test-project-20210119"
-  }
+    "default": "voypost-9ceae",
+    "voypost": "voypost-9ceae"
+  },
+  "targets": {}
 }
