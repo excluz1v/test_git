@@ -14,6 +14,7 @@ import { createStyles, makeStyles } from '@mui/styles';
 import { Theme } from '@mui/system';
 import { useUser } from 'reactfire';
 import { auth } from '../../../../common/firebaseApp';
+import clearFirestoreCache from '../../../../common/clearFirestoreCache';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -48,6 +49,7 @@ export default function HomeMenu() {
   async function logout() {
     handleClose();
     await auth.signOut();
+    clearFirestoreCache();
   }
 
   function extractInitials(fullName: string) {

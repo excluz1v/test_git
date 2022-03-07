@@ -1,16 +1,22 @@
 import { Typography } from '@mui/material';
+import { createStyles, makeStyles } from '@mui/styles';
+import { Theme } from '@mui/system';
 import React from 'react';
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    logo: {
+      width: '100%',
+      textAlign: 'center',
+      color: theme.palette.secondary.main,
+    },
+  }),
+);
+
 export default function Logo() {
+  const classes = useStyles();
   return (
-    <Typography
-      style={{
-        width: '100%',
-        textAlign: 'center',
-      }}
-      variant="h3"
-      color="secondary"
-    >
+    <Typography className={classes.logo} variant="h3">
       <svg
         width="173"
         height="37"

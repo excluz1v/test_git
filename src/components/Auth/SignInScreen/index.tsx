@@ -2,28 +2,44 @@ import React from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import { createStyles, makeStyles } from '@mui/styles';
 import Login from './Login/Login';
 
+const useStyles = makeStyles(() =>
+  createStyles({
+    container: {
+      height: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    signIn: {
+      padding: '3rem 3rem 0',
+    },
+    image: {
+      width: '100%',
+      height: '100%',
+    },
+  }),
+);
+
 const SignInScreen: React.FC = () => {
+  const classes = useStyles();
+
   return (
     <>
-      <Box
-        height="100vh"
-        display="flex"
-        flexDirection="column"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Container fixed>
+      <Box className={classes.container}>
+        <Container>
           <Grid container>
             <Grid item xs={6}>
               <img
+                className={classes.image}
                 src="./Hero_image.png"
                 alt="login img"
-                style={{ width: '100%', height: '100%' }}
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={6} className={classes.signIn}>
               <Login />
             </Grid>
           </Grid>

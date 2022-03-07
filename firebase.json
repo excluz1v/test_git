@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "site": "voypost",
     "public": "build",
     "ignore": [
       "firebase.json",
@@ -30,5 +29,8 @@
     "ui": {
       "enabled": true
     }
+  },
+  "functions": {
+    "source": "functions"
   }
 }

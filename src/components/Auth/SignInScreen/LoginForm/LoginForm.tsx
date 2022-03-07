@@ -1,4 +1,6 @@
 import Button from '@mui/material/Button';
+import { createStyles, makeStyles } from '@mui/styles';
+import { Theme } from '@mui/system';
 import { Form, Formik } from 'formik';
 import React, { useContext, useState } from 'react';
 import TextField from '@mui/material/TextField';
@@ -7,12 +9,23 @@ import { IconButton, InputAdornment } from '@mui/material';
 import { UIContext } from '../../../Unknown/UIContext';
 import LoginSchema from './validateSchema';
 import { auth } from '../../../../common/firebaseApp';
-import { ShowAlertParams } from '../../../../../types';
+import { ThandleSignInparams, ShowAlertParams } from '../../../../../types';
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    form: {
+      display: 'flex',
+      rowGap: ' 2rem',
+      flexWrap: 'wrap',
+    },
+  }),
+);
 
 export default function LoginForm() {
   const { setAlert } = useContext(UIContext);
   const [showPass, setShowPass] = useState(false);
   const [disabled, setDisabled] = useState(false);
+  const classes = useStyles();
 
   const showAlert = React.useCallback(
     (p: ShowAlertParams) => {
@@ -26,7 +39,7 @@ export default function LoginForm() {
     [setAlert],
   );
 
-  async function handleSignIn(values: { email: string; password: string }) {
+  async function handleSignIn(values: ThandleSignInparams) {
     const { email, password } = values;
     setDisabled(true);
     try {
@@ -57,13 +70,16 @@ export default function LoginForm() {
         }}
       >
         {({ errors, touched, handleChange, values }) => (
-          <Form className="login_form">
+          <Form className={classes.form}>
             <TextField
               fullWidth
               name="email"
               type="email"
               onChange={handleChange}
               value={values.email}
+              variant="filled"
+              label="Email"
+              size="small"
             />
             {errors.email && touched.email ? <div>{errors.email}</div> : null}
             <TextField
@@ -72,6 +88,9 @@ export default function LoginForm() {
               type={showPass ? 'text' : 'password'}
               onChange={handleChange}
               value={values.password}
+              variant="filled"
+              label="Password"
+              size="small"
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="start">

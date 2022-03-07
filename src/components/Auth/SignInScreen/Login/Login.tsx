@@ -1,22 +1,32 @@
 import { Box } from '@mui/material';
 import React from 'react';
+import { createStyles, makeStyles } from '@mui/styles';
 import LoginForm from '../LoginForm/LoginForm';
 import Logo from '../Logo/Logo';
 
+const useStyles = makeStyles(() =>
+  createStyles({
+    wrapper: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      rowGap: '2rem',
+      maxWidth: '375px',
+      margin: '0 auto',
+      flexWrap: 'wrap',
+    },
+    title: {
+      fontWeight: 'bold',
+      fontSize: '40px',
+    },
+  }),
+);
 export default function Login() {
+  const classes = useStyles();
   return (
-    <Box
-      display="flex"
-      flexDirection="row"
-      justifyContent="center"
-      alignItems="center"
-      rowGap={3}
-      maxWidth="375px"
-      margin="0 auto"
-      flexWrap="wrap"
-    >
+    <Box className={classes.wrapper}>
       <Logo />
-      <h2>Login</h2>
+      <h2 className={classes.title}>Login</h2>
       <LoginForm />
     </Box>
   );
